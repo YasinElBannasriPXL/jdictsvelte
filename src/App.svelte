@@ -22,14 +22,16 @@
 <main>
   <h1>Japanese Dictionary</h1>
   <section>
-    <input
-      bind:value={searchedWord}
-      type="text"
-      placeholder="Enter word to look up"
-    />
-    <div id="fa-search" on:click={() => {promise = searchWord()}}>
-      <Fa icon={faSearch} />
-    </div>
+    <form on:submit|preventDefault={(()=> {promise = searchWord()})}>
+      <input
+        bind:value={searchedWord}
+        type="text"
+        placeholder="Enter word to look up"
+      />
+      <div id="fa-search" on:click={() => {promise = searchWord()}}>
+        <Fa icon={faSearch} />
+      </div>
+    </form>
   </section>
 
   <section id="words-section">
@@ -58,6 +60,10 @@
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+  form {
+    display: flex;
+    justify-content: space-around;
   }
   #words-section {
     display: flex;
