@@ -1,4 +1,5 @@
 <script>
+  import WordList from "./lib/WordList.svelte";
   let apiUrl = "https://sensitive-plot-production.up.railway.app/";
   import Fa from "svelte-fa";
   import { faSearch } from "@fortawesome/free-solid-svg-icons";
@@ -9,6 +10,7 @@
     searchedSomething = true;
     const response = await fetch(`${apiUrl}${searchedWord}`);
     const words = await response.json();
+    console.log(words);
     if (response.ok) {
       return await words;
     }
@@ -28,18 +30,20 @@
     </div>
   </section>
 
-  {#if !searchedSomething}
-    <p>Hi there! This is a Japanese-to-Japanese dictionary app.</p>
-    <p>You can use either Hiragana, Katakana or Kanji to look up a word.</p>
-  {:else}
-    {#await searchWord()}
-      <p>Getting those words for you...</p>
-    {:then wordList}
-      {#each wordList as word}
-        <p>{word.word}</p>
-      {/each}
-    {/await}
-  {/if}
+  <section id="words-section">
+    {#if !searchedSomething}
+      <p>Hi there! This is a Japanese-to-Japanese dictionary app.</p>
+      <p>You can use either Hiragana, Katakana or Kanji to look up a word.</p>
+    {:else}
+      {#await searchWord()}
+        <p>Getting those words for you...</p>
+      {:then wordList}
+        {#each wordList as word}
+          <WordList {...word} />
+        {/each}
+      {/await}
+    {/if}
+  </section>
 </main>
 
 <style>
@@ -48,11 +52,15 @@
     flex-direction: column;
     align-items: center;
   }
-
   section {
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+  #words-section {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6em;
   }
   #fa-search {
     margin-left: 1em;
@@ -61,13 +69,13 @@
     transition: background 0.25s ease-in;
     border-radius: 0.25em;
   }
-
   #fa-search:hover {
     background-color: rgb(0, 255, 255, 0.5);
   }
   input {
     height: 3em;
-    width: 23em;
+    width: 80vw;
+    max-width: 40em;
     border-width: 0;
     border-bottom: 5px solid lightgray;
     border-radius: 0;
