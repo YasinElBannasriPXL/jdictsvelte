@@ -32,12 +32,13 @@
 <style>
   #wrapper {
     display: grid;
-    grid-template-columns: repeat(auto-fill, 20em);
     width: 95vw;
     max-width: 55em;
     background-color: #1a1b21;
     border: 1px solid #dcdcdc11;
     border-radius: 2px;
+    overflow: hidden;
+
   }
   #wrapper:nth-child(1) {
     margin-top: 2.5em;
@@ -68,12 +69,8 @@
     background-color: #797979;
   }
   #word {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
     margin-top: 2em;
     margin-bottom: 1em;
-    overflow: hidden;
   }
   #actual-word-wrapper {
     position: relative;
@@ -97,20 +94,17 @@
     position: relative;
     display: flex;
     padding: 0.3em;
-    padding-left: 7em;
-    padding-right: 7em;
+    padding-left: 2em;
+    padding-right: 2em;
     margin-bottom: 2em;
+    max-width: 80vw;
   }
   #definition:before {
-    position: absolute;
     content: "";
     background-color: #4fbfff;
-    left: 6em;
     border-radius: 1em;
-    top: 0.3;
-    width: 0.3em;
-    height: 1.2em;
-    opacity: 1;
+    margin-right: 1em;
+    width: 1.5em;
   }
   @media screen and (max-width: 420px) {
     #definition {
