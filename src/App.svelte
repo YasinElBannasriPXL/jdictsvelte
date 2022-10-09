@@ -75,7 +75,7 @@ async function searchWord() {
 <style>
 
     #input {
-        max-width: 100vw;
+        max-width: 95vw;
         overflow: hidden;
     }
 #branding {
@@ -112,6 +112,7 @@ section {
 
 form {
     display: flex;
+    max-width: 100vw;
     justify-content: space-around;
 }
 
