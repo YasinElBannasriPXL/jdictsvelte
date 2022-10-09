@@ -6,6 +6,8 @@
   let searchedWord = "卵";
   let searchedSomething = false;
 
+  let promise = searchWord();
+
   async function searchWord() {
     searchedSomething = true;
     const response = await fetch(`${apiUrl}${searchedWord}`);
@@ -25,7 +27,7 @@
       type="text"
       placeholder="Enter word to look up"
     />
-    <div id="fa-search" on:click={searchWord}>
+    <div id="fa-search" on:click={() => {promise = searchWord()}}>
       <Fa icon={faSearch} />
     </div>
   </section>
@@ -35,7 +37,7 @@
       <p>Hi there! This is a Japanese-to-Japanese dictionary app.</p>
       <p>You can use either Hiragana, Katakana or Kanji to look up a word.</p>
     {:else}
-      {#await searchWord()}
+      {#await promise}
         <p>Getting those words for you...</p>
       {:then wordList}
         {#each wordList as word}
