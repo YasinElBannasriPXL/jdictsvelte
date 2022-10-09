@@ -45,6 +45,9 @@
       <p>You can use either Hiragana, Katakana or Kanji to look up a word.</p>
     {:else}
       {#await promise}
+      <div id="loading-bar-wrapper">
+        <div id="loading-bar"></div>
+      </div>
         <p>Getting those words for you...</p>
       {:then wordList}
         {#each wordList as word}
@@ -82,6 +85,29 @@
     flex-direction: column;
     gap: 0.6em;
   }
+  #loading-bar-wrapper {
+    border-radius: 1em;
+  width: 200px;
+  height: 1em;
+  background-color: gray;
+}
+
+#loading-bar {
+  height: 100%;
+  width: 10%;
+  background-color: #4fbfff;
+  animation: left-to-right 0.25s alternate infinite ease-in forwards;
+  
+}
+
+@keyframes left-to-right {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 100%;
+  }
+}
   #fa-search {
     margin-left: 1em;
     background-color: rgb(0, 255, 255, 0);
