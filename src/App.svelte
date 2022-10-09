@@ -1,5 +1,6 @@
 <script>
   import WordList from "./lib/WordList.svelte";
+  import logo from './assets/Frame.svg';
   let apiUrl = "https://sensitive-plot-production.up.railway.app/";
   import Fa from "svelte-fa";
   import { faSearch } from "@fortawesome/free-solid-svg-icons";
@@ -19,7 +20,10 @@
   }
 </script>
 
+
+
 <main>
+  <img src={logo} alt="site logo"/>
   <h1>Japanese Dictionary</h1>
   <section>
     <form on:submit|preventDefault={(()=> {promise = searchWord()})}>
@@ -56,6 +60,13 @@
     flex-direction: column;
     align-items: center;
   }
+
+  main img {
+    margin-top: 0.5em;
+    aspect-ratio: 1;
+    width: 5em;
+    align-self: flex-center;
+  }
   section {
     display: flex;
     align-items: center;
@@ -81,6 +92,7 @@
     background-color: rgb(0, 255, 255, 0.5);
   }
   input {
+    margin-left: 1.4em;
     height: 3em;
     width: 80vw;
     max-width: 40em;

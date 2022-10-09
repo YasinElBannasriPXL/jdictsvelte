@@ -22,7 +22,7 @@
         display: grid;
         grid-template-columns: 1fr;
         width: 95vw;
-        max-width: 75em;
+        max-width: 50em;
         background-color: #1A1B21;
         border: 1px solid #dcdcdc11;
         border-radius: 2px;
