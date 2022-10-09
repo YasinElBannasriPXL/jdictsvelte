@@ -2,7 +2,7 @@
     export let hiraganaReading;
     export let word;
     export let definition;
-    export let someNumber;
+    // export let someNumber;
 </script>
 
 

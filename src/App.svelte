@@ -4,11 +4,12 @@
   let apiUrl = "https://sensitive-plot-production.up.railway.app/";
   import Fa from "svelte-fa";
   import { faSearch } from "@fortawesome/free-solid-svg-icons";
-  let searchedWord = "卵";
+  let searchedWord = "";
   let searchedSomething = false;
+  let promise;
 
-  let promise = searchWord();
-
+  if (searchedWord) promise = searchWord();
+  
   async function searchWord() {
     searchedSomething = true;
     const response = await fetch(`${apiUrl}${searchedWord}`);
