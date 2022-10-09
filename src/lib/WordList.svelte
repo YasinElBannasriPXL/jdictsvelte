@@ -6,20 +6,20 @@
   let visible = false;
 
   function addWord() {
-    alert(someNumber)
+    alert(someNumber);
   }
 </script>
 
 <div id="wrapper">
   <div id="word">
     <div id="word-reading">{hiraganaReading}</div>
-    <div id="actual-word-wrapper" on:click={() => visible = !visible}>
+    <div id="actual-word-wrapper" on:click={() => (visible = !visible)}>
       <div id="actual-word">{word}</div>
       {#if visible}
         <div id="word-menu">
-            <ul>
-                <li class="menu-item" on:click={addWord}>Add Word</li>
-            </ul>
+          <ul>
+            <li class="menu-item" on:click={addWord}>Add Word</li>
+          </ul>
         </div>
       {/if}
     </div>
