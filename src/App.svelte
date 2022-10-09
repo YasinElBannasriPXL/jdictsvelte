@@ -31,7 +31,7 @@ async function searchWord() {
         <img src={logo} alt="site logo" />
         <h1>Japanese Dictionary</h1>
     </div>
-    <section>
+    <section id='input'>
         <form
             on:submit|preventDefault={() => {
             promise = searchWord();
@@ -73,6 +73,11 @@ async function searchWord() {
 </main>
 
 <style>
+
+    #input {
+        max-width: 100vw;
+        overflow: hidden;
+    }
 #branding {
     display: flex;
     align-items: center;
@@ -112,6 +117,7 @@ form {
 
 #words-section {
     display: flex;
+    align-items: center;
     flex-direction: column;
     gap: 0.6em;
 }

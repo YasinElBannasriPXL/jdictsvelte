@@ -84,6 +84,7 @@
   }
 
   ul {
+    display: flex;
     min-width: 9em;
     margin: 0;
     list-style-type: none;

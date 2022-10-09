@@ -32,7 +32,7 @@
 <style>
   #wrapper {
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(auto-fill, 20em);
     width: 95vw;
     max-width: 55em;
     background-color: #1a1b21;
@@ -68,8 +68,12 @@
     background-color: #797979;
   }
   #word {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
     margin-top: 2em;
     margin-bottom: 1em;
+    overflow: hidden;
   }
   #actual-word-wrapper {
     position: relative;
@@ -91,6 +95,7 @@
 
   #definition {
     position: relative;
+    display: flex;
     padding: 0.3em;
     padding-left: 7em;
     padding-right: 7em;
