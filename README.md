@@ -1,3 +1,7 @@
+# Japanese Dictionary Frontend in Svelte
+This project is a Svelte version of a Japanese dictionary frontend I made in React.
+
+
 # Svelte + Vite
 
 This template should help get you started developing with Svelte in Vite.
