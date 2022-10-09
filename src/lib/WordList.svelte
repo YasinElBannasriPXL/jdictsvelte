@@ -32,7 +32,7 @@
         margin-top: 2.5em;
     }
     #word {
-        margin-top: 1em;
+        margin-top: 2em;
         margin-bottom: 1em;
     }
     #actual-word {
@@ -49,7 +49,27 @@
     }
     
     #definition {
+        position: relative;
         padding: 0.3em;
-        padding-left: 3em;
+        padding-left: 7em;
+        padding-right: 7em;
+        margin-bottom: 2em;
+    }
+    #definition:before {
+        position: absolute;
+        content: '';
+        background-color: #4fbfff;
+        left: 6em;
+        border-radius: 1em;
+        top: 0.3;
+        width: 0.3em;
+        height: 1.2em;
+        opacity: 1;
+    }
+    @media screen and (max-width: 420px) {
+        #definition {
+
+        padding-right: 2em;
+    }
     }
 </style>
